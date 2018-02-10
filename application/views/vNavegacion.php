@@ -41,82 +41,34 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="<?php print base_url(); ?>">
-                <img src="<?php print base_url(); ?>img/logo.png" width="62px">
+                <img src="<?php print base_url(); ?>img/cliente_logo.png" width="140px">
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="">
             <ul class="nav navbar-nav">
-                <li class="dropdown" >
-                    <a href="#"  class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Mesa de Trabajo<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li class="hide" id="liPedidoCliente">
-                            <a href="<?php print base_url('CtrlPedidoCliente') ?>">Pedidos Cliente</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li class="hide" id="liServicios">
-                            <a href="<?php print base_url('CtrlTrabajos') ?>">Servicios</a>
-                        </li>
-                        <!--
-
-                       <li class="dropdown-submenu hide"  id="liServicios">
-                            <a class="multinivel" tabindex="-1" href="#">Servicios <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li id="liTrabajo" class="hide" tabindex="-1"><a href="<?php print base_url('CtrlTrabajos') ?>"  >Trabajos</a></li>
-                                <li class="divider"></li>
-                                <li id="liCajerosBBVA" class="hide"><a  href="<?php print base_url('CtrlCajerosBBVA') ?>">Cajeros BBVA</a></li>
-                            </ul>
-                        </li>
-                        -->
-                    </ul>
-                </li>
-                <li class="dropdown hide" id="liControl">
-                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Control<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li id="liEntregas"><a href="<?php print base_url('CtrlEntregas') ?>" >Control de Entregas</a></li>
-                        <li id="liPrefacturas"><a href="<?php print base_url('CtrlPrefacturas') ?>">Control de Prefacturas</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown hide" id="liExploradores">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Exploradores <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="<?php print base_url('CtrlExploradorServicios') ?>">Servicios</a></li> 
-                    </ul>
-                </li>
-                <li class="dropdown hide" id="liCatalogos">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catálogos <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li id="liClientes"><a href="<?php print base_url('CtrlClientes') ?>">Clientes</a></li>
-                        <li id="liEmpresas"><a href="<?php print base_url('CtrlEmpresas') ?>">Empresas</a></li>
-                        <li id="liPreciarios"><a href="<?php print base_url('CtrlPreciarios') ?>">Preciarios</a></li> 
-                        <!--                        <li class="disabled"><a href="#"><b>OBRA</b></a></li>-->
-                        <li id="liEmpresasSupervisoras"><a href="<?php print base_url('CtrlEmpresasSupervisoras') ?>">Empresas Supervisoras</a></li>
-                        <!--                        <li class="disabled"><a href="#"><b>MANTENIMIENTO</b></a></li>-->
-                        <li id="liCuadrillas"><a href="<?php print base_url('CtrlCuadrillas') ?>" >Cuadrillas</a></li>
-                        <li id="liCodigosPPTA"><a href="<?php print base_url('CtrlCodigosPPTA') ?>" >Códigos PPTA</a></li>
-                        <li id="liCentrosCostos"><a href="<?php print base_url('CtrlCentroCostos') ?>" >Centros de Costos</a></li>
-                        <li id="liEspecialidades"><a href="<?php print base_url('CtrlEspecialidades') ?>" >Especialidades</a></li>
-                        <li id="liAreas"><a href="<?php print base_url('CtrlAreas') ?>" >Areas</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown hide" id="liUsuarios">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ><a href="<?php print base_url('CtrlUsuario') ?>">Usuarios</a></li>
-                        <li ><a href="<?php print base_url('CtrlRegistroUsuarios') ?>">Log de Usuarios</a></li>
-                    </ul>
-                </li>
+                
+            <li ><a href="<?php print base_url('CtrlSesiones') ?>">Curso</a></li>    
+                
+            <li ><a href="<?php print base_url('CtrlMaterialDidactico') ?>">Cargar Material Didáctico</a></li>
+            
+               
+             
+                
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" id="liUsuarios">
+                    <li ><a href="<?php print base_url('CtrlUsuario') ?>">Usuarios</a></li>
+                </li>
                 <li class="dropdown">
                     <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <?php echo $this->session->userdata('Nombre') . ' ' . $this->session->userdata('Apellidos'); ?>
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li onclick="onCambiarContrasena();"><a href="#" onclick="onRegistrarAccion('INTENTÓ CAMBIAR CONTRASEÑA');">Cambiar Contraseña</a></li>
+                        <li onclick="onCambiarContrasena();"><a href="#" >Cambiar Contraseña</a></li>
                         <li><a href="">Reportar un problema</a></li>
                         <li class="divider"></li>
-                        <li><a href="<?php print base_url('CtrlSesion/onSalir'); ?>" onclick="onRegistrarAccion('SALIÓ DEL SISTEMA');">Salir</a></li>
+                        <li><a href="<?php print base_url('CtrlSesion/onSalir'); ?>">Salir</a></li>
                     </ul>
                 </li>
             </ul>
@@ -124,48 +76,8 @@
     </div><!-- /.container-fluid -->
 </nav>
 <script>
-    var TipoAcceso = "<?php echo $this->session->userdata('TipoAcceso'); ?>";
-    if (TipoAcceso === 'RESIDENTE') {
-        $('#liServicios').removeClass('hide');
-        //$('#liTrabajo').removeClass('hide');
-        //$('#liCajerosBBVA').removeClass('disabledDetalle');
-    }
-    if (TipoAcceso === 'COORDINADOR DE PROCESOS') {
-        $('#liControl').removeClass('hide');
-        $('#liCatalogos').removeClass('hide');
-        $('#liEmpresas').addClass('hide');
-        $('#liPrefacturas').addClass('hide');
-        $('#liServicios').removeClass('hide');
-        $('#liClientes').addClass('hide');
-        $('#liExploradores').removeClass('hide');
-        //$('#liTrabajo').removeClass('hide');
-        //$('#liCajerosBBVA').removeClass('hide');
-
-    }
-    if (TipoAcceso === 'ADMINISTRADOR') {
-        $('#liControl').removeClass('hide');
-        $('#liReportes').removeClass('hide');
-        $('#liExploradores').removeClass('hide');
-        $('#liCatalogos').removeClass('hide');
-        //$('#liUsuarios').removeClass('hide');
-        $('#liServicios').removeClass('hide');
-        //$('#liTrabajo').removeClass('hide');
-        //$('#liCajerosBBVA').removeClass('hide');
-    }
-    if (TipoAcceso === 'CLIENTE') {
-        $('#liPedidoCliente').removeClass('hide');
-    }
-    if (TipoAcceso === 'SUPER ADMINISTRADOR') {
-        $('#liPedidoCliente').removeClass('hide');
-        $('#liControl').removeClass('hide');
-        $('#liExploradores').removeClass('hide');
-        $('#liCatalogos').removeClass('hide');
-        $('#liUsuarios').removeClass('hide');
-        $('#liServicios').removeClass('hide');
-        //$('#liTrabajo').removeClass('hide');
-        //$('#liCajerosBBVA').removeClass('hide');
-
-    }
+    //var TipoAcceso = "<?php echo $this->session->userdata('TipoAcceso'); ?>";
+ 
     var master_url = base_url + 'CtrlSesion/';
     $(document).ready(function () {
         $('.dropdown-submenu a.multinivel').on("click", function (e) {
@@ -226,23 +138,7 @@
         $("#ID").val("<?php echo $this->session->userdata('ID'); ?>");
     }
 
-    function onRegistrarAccion(accion) {
-        var master_url = base_url + 'CtrlSesion/';
-        $.ajax({
-            url: master_url + 'onAgregar',
-            type: "POST",
-            dataType: "JSON",
-            data: {
-                Accion: accion
-            }
-        }).done(function (data, x, jq) {
-            console.log(data);
-        }).fail(function (x, y, z) {
-            console.log(x, y, z);
-        }).always(function () {
-            HoldOn.close();
-        });
-    }
+
 
 
 

@@ -54,15 +54,11 @@
                 <div class="form-group">
                     <input type="password" class="form-control" id="Contrasena" name="Contrasena" placeholder="Contraseña*">
                 </div>
-                <!--
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" placeholder="No soy un robot" id="chkRobot" name="chkRobot"> No soy un robot
                     </label>
                 </div>
-                -->
-                <!--Mensaje de error-->
-                <!--<div id="msg"></div>-->
                 <div align="right">
                     <button id="btnIngresar" type="button" class="btn btn-raised btn-primary">INGRESAR</button>
                     <hr>
@@ -81,7 +77,7 @@
     var btnIngresar = $("#btnIngresar");
     var Usuario = $("#Usuario");
     var Contrasena = $("#Contrasena");
-    //var chkRobot = $("#chkRobot");
+    var chkRobot = $("#chkRobot");
 
     var mdlEnviado = $("#mdlEnviado");
     var mdlOlvideContrasena = $("#mdlOlvideContrasena");
@@ -91,7 +87,7 @@
     $(document).ready(function () {
         btnIngresar.click(function () {
             //Agregar al if si se quiere poner el check --- && chkRobot.is(':checked')
-            if (Usuario.val() !== '' && Contrasena.val() !== '') {
+            if (Usuario.val() !== '' && Contrasena.val() !== '' && chkRobot.is(':checked')) {
                 HoldOn.open({
                     theme: 'sk-bounce',
                     message: 'ESPERE...'

@@ -11,15 +11,12 @@ class CtrlSesion extends CI_Controller {
         date_default_timezone_set('America/Mexico_City');
         $this->load->library('session');
         $this->load->model('usuario_model');
-        $this->load->model('trabajo_model');
-        $this->load->model('registroUsuarios_model');
     }
 
     public function index() {
         if (session_status() === 2 && isset($_SESSION["LOGGED"])) {
             $this->load->view('vEncabezado');
             $this->load->view('vNavegacion');
-            //  $this->load->view('vPrincipal');
             $this->load->view('vFooter');
         } else {
             $this->load->view('vEncabezado');
@@ -38,22 +35,11 @@ class CtrlSesion extends CI_Controller {
                     'PASSWORD' => $data[0]->Contrasena,
                     'Nombre' => $data[0]->Nombre,
                     'Apellidos' => $data[0]->Apellidos,
-                    'Cliente' => $data[0]->Cliente_ID,
-                    'Empresa' => $data[0]->Empresa_ID,
                     'ID' => $data[0]->ID,
-                    'LOGGED' => TRUE,
-                    'TipoAcceso' => $data[0]->TipoAcceso,
+                    'LOGGED' => TRUE
                 );
                 $this->session->mark_as_temp('LOGGED', 28800);
                 $this->session->set_userdata($newdata);
-                $this->usuario_model->onModificarUltimoAcceso($data[0]->ID, date("d-m-Y H:i:s"));
-
-                $dataRegistrarAccion = array(
-                    'Accion' => 'LOGIN',
-                    'Registro' => date("d-m-Y H:i:s"),
-                    'Usuario_ID' => $data[0]->ID
-                );
-                $this->registroUsuarios_model->onAgregar($dataRegistrarAccion);
 
                 print 1;
             } else {
@@ -64,19 +50,6 @@ class CtrlSesion extends CI_Controller {
         }
     }
 
-    public function onAgregar() {
-        try {
-            extract($this->input->post());
-            $data = array(
-                'Accion' => $Accion,
-                'Registro' => date("d-m-Y H:i:s"),
-                'Usuario_ID' => $this->session->userdata('ID')
-            );
-            $ID = $this->registroUsuarios_model->onAgregar($data);
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
 
     public function onCambiarContrasena() {
         try {

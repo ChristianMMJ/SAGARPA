@@ -11,8 +11,6 @@ class CtrlUsuario extends CI_Controller {
         date_default_timezone_set('America/Mexico_City');
         $this->load->library('session');
         $this->load->model('usuario_model');
-        $this->load->model('empresa_model');
-        $this->load->model('cliente_model');
     }
 
     public function index() {
@@ -32,24 +30,6 @@ class CtrlUsuario extends CI_Controller {
     public function getRecords() {
         try {
             $data = $this->usuario_model->getRecords();
-            print json_encode($data);
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
-
-    public function getEmpresas() {
-        try {
-            $data = $this->empresa_model->getEmpresas();
-            print json_encode($data);
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
-    
-      public function getClientes() {
-        try {
-            $data = $this->cliente_model->getClientes();
             print json_encode($data);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
@@ -82,10 +62,7 @@ class CtrlUsuario extends CI_Controller {
                 'Contrasena' => ($Contrasena !== NULL) ? $Contrasena : NULL,
                 'Nombre' => ($Nombre !== NULL) ? $Nombre : NULL,
                 'Apellidos' => ($Apellidos !== NULL) ? $Apellidos : NULL,
-                'TipoAcceso' => ($TipoAcceso !== NULL) ? $TipoAcceso : NULL,
-                'Empresa_ID' => ($Empresa_ID !== NULL) ? $Empresa_ID : NULL,
-                'Estatus'=>($Estatus !== NULL) ? $Estatus : NULL,
-                'Cliente_ID'=>($Cliente_ID !== NULL && $Cliente_ID !== 0) ? $Cliente_ID : NULL
+                'Estatus'=>($Estatus !== NULL) ? $Estatus : NULL
             );
             $this->usuario_model->onModificar($ID, $DATA);
         } catch (Exception $exc) {

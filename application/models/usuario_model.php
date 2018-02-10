@@ -9,15 +9,9 @@ class usuario_model extends CI_Model {
    
     public function getRecords() {
         try {
-            $this->db->select("ID, CONCAT(U.Nombre, ' ', U.Apellidos) AS Nombre,
-                CONCAT('<span class=\'label label-info\'>',ifnull(U.UltimoAcceso,'--'),'</span>') AS 'Último Acceso',
+            $this->db->select("ID, CONCAT(U.Nombre, ' ', U.Apellidos) AS Nombre ,
                   (CASE WHEN  U.Estatus ='Activo' THEN CONCAT('<span class=\'label label-success\'>','ACTIVO','</span>')
-                    ELSE CONCAT('<span class=\'label label-danger\'>','INACTIVO','</span>') END) AS Estatus ,
-                    U.TipoAcceso AS Acceso,
-                    (CASE
-                    WHEN U.Empresa_ID IS NULL THEN 'NO ESPECIFICA'
-                    ELSE (SELECT E.Nombre FROM empresas AS E WHERE E.ID = U.Empresa_ID)
-                    END) AS Empresa
+                    ELSE CONCAT('<span class=\'label label-danger\'>','INACTIVO','</span>') END) AS Estatus
                     FROM Usuarios AS U; ", false);
             $query = $this->db->get();
 
@@ -84,17 +78,6 @@ class usuario_model extends CI_Model {
         try {
             $this->db->where('ID', $ID);
             $this->db->update("usuarios", $DATA);
-//            print $str = $this->db->last_query();
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
-
-    public function onModificarUltimoAcceso($ID, $ULTIMOACCESO) {
-        try {
-            $this->db->set('UltimoAcceso', $ULTIMOACCESO);
-            $this->db->where('ID', $ID);
-            $this->db->update("usuarios");
 //            print $str = $this->db->last_query();
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();

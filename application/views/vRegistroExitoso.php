@@ -3,7 +3,7 @@
         <div class="Absolute-Center is-Responsive panel">
 
             <center>
-                <img src="<?php print base_url(); ?>img/logoCliente.jpg" width="200">
+                <img src="<?php print base_url(); ?>img/Logo.png" width="240">
                 <p>Plataforma de Capacitación para el Emprendimiento
                     en el Sector Productivo Agroalimentario</p>
                 <br>

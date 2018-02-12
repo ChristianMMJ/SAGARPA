@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="<?php print base_url(); ?>">
-                <img src="<?php print base_url(); ?>img/cliente_logo.png" width="140px">
+                <img src="<?php print base_url(); ?>img/logoCliente.jpg" width="140px">
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->

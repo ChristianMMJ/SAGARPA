@@ -48,8 +48,10 @@
                 </div>
             </div>
         </div>
-        <div class="panel-body">
+       
             <form id="frmNuevo">
+                <div class="modal-body modal-bodyFull">
+                  
                 <fieldset>
                     <div class="col-6 col-md-3">
                         <div class="form-group label-static">
@@ -90,8 +92,9 @@
                     <br>
                     <h6>Los campos con * son obligatorios</h6>    
                 </div>
+                </div>
             </form>
-        </div>
+      
     </div>
 </div>
 <div class="col-md-12">

@@ -65,7 +65,7 @@ class usuario_model extends CI_Model {
     public function onAgregar($array) {
         try {
             $this->db->insert("usuarios", $array);
-            print $str = $this->db->last_query();
+            //print $str = $this->db->last_query();
             $query = $this->db->query('SELECT LAST_INSERT_ID()');
             $row = $query->row_array();
             $LastIdInserted = $row['LAST_INSERT_ID()'];

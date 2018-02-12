@@ -23,8 +23,8 @@ body {
 
 .Absolute-Center.is-Responsive {
   width: 50%; 
-  height: 380px;
-  min-width: 300px;
+  height: 490px;
+  min-width: 400px;
   max-width: 600px;
   padding: 30px;
 }

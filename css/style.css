@@ -29,7 +29,22 @@ body {
   padding: 30px;
 }
 
+.super-fullscreen {
+    width: 60% !important;
 
+}
+.super-fullscreen {
+    width: 60% !important;
+    
+}
+.super-fullscreen > .modal-content {
+    height: auto;
+    border-radius: 0;
+}
+.super-fullscreen > .modal-body {
+    height: auto;
+    border-radius: 0;
+}
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     vertical-align: middle !important;

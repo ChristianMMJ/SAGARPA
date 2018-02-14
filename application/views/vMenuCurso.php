@@ -49,7 +49,7 @@
 </div>
 <!--MODAL VER VIDEO-->
 <div id="mdlVideoIntro" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog  modal-content ">
+    <div class="modal-dialog  modal-content super-fullscreen">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
@@ -65,21 +65,21 @@
 </div>
 <!--MODAL VER CONTENIDO-->
 <div id="mdlContenido" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog  modal-content ">
+
+    <div class="modal-dialog  modal-content super-fullscreen">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Contenido del curso</h4>
         </div>
         <div class="modal-body">
-
+            <embed src="<?php print base_url(); ?>uploads/CONTENIDO DEL CURSO.pdf" type="application/pdf" width="100%" height="500px" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-raised btn-primary" data-dismiss="modal">CERRAR</button>
         </div>
     </div>
 </div>
-
 <!--NAVEGACION INTERNA-->
 <div id="pnlNavegacion" class="animated fadeInLeft">  
     <div class="row">
@@ -112,7 +112,8 @@
                     <hr>
                     <div class="dt-buttons">
                         <button type="button" class="btn btn-default pull-left" id="btnContenido">CONTENIDO</button>
-                       <a href="<?php print base_url('CtrlCurso') ?>" type="button" class="btn btn-raised btn-primary pull-right" id="btnEntrar">ENTRAR</a>
+                        <button  type="button" class="btn btn-raised btn-primary pull-right" id="btnEntrar">ENTRAR</button>
+ <!--                    href="<?php print base_url('CtrlCurso') ?>"-->
                     </div>
                     <br>
                     <br>
@@ -139,34 +140,103 @@
                 <table class="table" style="padding: 0; margin: 0;">
                     <tr>
                         <td>Nombre</td>
-                        <td>Christian Medina Juárez</td>
+                        <td><?php echo $this->session->userdata('Nombre') . ' ' . $this->session->userdata('Apellidos'); ?></td>
                     </tr>
                     <tr>
                         <td>Edad</td>
-                        <td>25 Años</td>
+                        <td><?php echo $this->session->userdata('Edad') ?> Años</td>
                     </tr>
                     <tr>
                         <td>Genero</td>
-                        <td>Hombre</td>
+                        <td><?php echo $this->session->userdata('Genero') ?></td>
                     </tr>
                 </table>
-                <div class="panel-body">
-                    <div class="dt-buttons">
-                        <button type="button" class="btn btn-raised btn-primary pull-right" id="btnEditar">EDITAR</button>
-                    </div>
-                </div>
+
             </div>
         </div>
 
     </div>  
 </div>
+
 <!--SCRIPT-->
 <SCRIPT>
     var master_url = base_url + 'CtrlCurso/';
     var idUsuario = "<?php echo $this->session->userdata('ID'); ?>";
-    
+
+
+
+
     $(document).ready(function () {
-        
+
+        $('#btnEntrar').on('click', function () {
+
+         
+            HoldOn.open({
+                theme: "sk-bounce",
+                message: "CARGANDO DATOS..."
+            });
+            $.ajax({
+                url: master_url + 'getSesionByUsuariobySesion',
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    Sesion: 1
+                }
+            }).done(function (data, x, jq) {
+                if (data.length > 0) {
+                    //Consultar en que curso va para mostrar su curso, y guardar en que sesion va en una variable de sesión
+                    $.ajax({
+                        url: master_url + 'getSesionActivaByUsuario',
+                        type: "POST",
+                        dataType: "JSON"
+                    }).done(function (data, x, jq) {
+                        var sesionCurso = data[0].NSesion;
+                        document.cookie = "sesion=" + sesionCurso + " ";
+                        window.location.href = "<?php echo base_url('CtrlCurso'); ?>";
+                    }).fail(function (x, y, z) {
+                        console.log(x, y, z);
+                    }).always(function () {
+                        HoldOn.close();
+                    });
+
+                } 
+                
+                else {
+                    //Es nuevo, aqui se inserta una nuevo registro en la tabla de sesiones y se deshabilita la primer sesion
+                    var sesionCurso = '1';
+                    var frm = new FormData();
+                    frm.append('Observaciones', '');
+                    frm.append('Usuario_ID', idUsuario);
+                    frm.append('NSesion', sesionCurso);
+                    frm.append('Estatus', 'Activa');
+
+                    $.ajax({
+                        url: master_url + 'onAgregar',
+                        type: "POST",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: frm
+                    }).done(function (data, x, jq) {
+                        document.cookie = "sesion=" + sesionCurso + " ";
+                        window.location.href = "<?php echo base_url('CtrlCurso'); ?>";
+                    }).fail(function (x, y, z) {
+                        console.log(x, y, z);
+                    }).always(function () {
+                        HoldOn.close();
+                    });
+
+
+                }
+
+            }).fail(function (x, y, z) {
+                console.log(x, y, z);
+            }).always(function () {
+                HoldOn.close();
+            });
+
+        });
+
         $('#btnIntro').on('click', function () {
             $('#mdlIntroduccion').modal('show');
         });
@@ -177,13 +247,5 @@
             $('#mdlContenido').modal('show');
         });
     });
-    
-    
-
-
-    
-
-
-
 
 </SCRIPT>

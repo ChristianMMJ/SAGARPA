@@ -78,7 +78,7 @@ class usuario_model extends CI_Model {
         try {
             $this->db->where('ID', $ID);
             $this->db->update("usuarios", $DATA);
-//            print $str = $this->db->last_query();
+            print $str = $this->db->last_query();
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }

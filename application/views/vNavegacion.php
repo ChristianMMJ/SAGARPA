@@ -60,7 +60,7 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li onclick="onCambiarContrasena();"><a href="#" >Cambiar Contraseña</a></li>
-                        <li><a href="">Reportar un problema</a></li>
+                       
                         <li class="divider"></li>
                         <li><a href="<?php print base_url('CtrlSesion/onSalir'); ?>">Salir</a></li>
                     </ul>
@@ -71,11 +71,13 @@
 </nav>
 
 <script>
-    //var TipoAcceso = "<?php echo $this->session->userdata('TipoAcceso'); ?>";
-
-    var master_url = base_url + 'CtrlSesion/';
+    
+    
+    
     $(document).ready(function () {
-
+        var master_url = base_url + 'CtrlSesion/';
+        
+        
         $('.dropdown-submenu a.multinivel').on("click", function (e) {
             $(this).next('ul').toggle();
             e.stopPropagation();
@@ -106,6 +108,7 @@
                 }
             });
             //Si es verdadero que hacer
+           
             if ($('#frmEditarContrasena').valid()) {
                 HoldOn.open({theme: 'sk-bounce', message: 'ESPERE...'});
                 $.ajax({
@@ -118,7 +121,7 @@
                 }).done(function (data, x, jq) {
                     $('#mdlCambiarContrasena').modal('hide');
                     onNotify('<span class="fa fa-check fa-lg"></span>', 'CONTRASEÑA MODIFICADA EXITOSAMENTE', 'success');
-                    onRegistrarAccion('CAMBIO CONTRASEÑA');
+                   
                 }).fail(function (x, y, z) {
                     console.log(x, y, z);
                 }).always(function () {

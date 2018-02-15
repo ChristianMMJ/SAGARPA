@@ -49,9 +49,6 @@
             $.ajax({
                 url: master_urlCurso + 'onModificar',
                 type: "POST",
-                cache: false,
-                contentType: false,
-                processData: false,
                 data: {
                     Sesion: Nsesion,
                     Observaciones: $("#Notas").val()
@@ -62,7 +59,6 @@
             }).always(function () {
             });
             
-            
             var frm = new FormData();
             frm.append('Usuario_ID', idUsuario);
             frm.append('NSesion', 3);
@@ -71,9 +67,7 @@
             $.ajax({
                 url: master_urlCurso + 'onAgregar',
                 type: "POST",
-                cache: false,
-                contentType: false,
-                processData: false,
+                dataType: "JSON",
                 data: frm
             }).done(function (data, x, jq) {
                 document.cookie = "sesion=" + 3 + " ";

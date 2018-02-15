@@ -49,9 +49,6 @@
             $.ajax({
                 url: master_urlCurso + 'onModificar',
                 type: "POST",
-                cache: false,
-                contentType: false,
-                processData: false,
                 data: {
                     Sesion: Nsesion,
                     Observaciones: $("#Notas").val()
@@ -71,9 +68,7 @@
             $.ajax({
                 url: master_urlCurso + 'onAgregar',
                 type: "POST",
-                cache: false,
-                contentType: false,
-                processData: false,
+                dataType: "JSON",
                 data: frm
             }).done(function (data, x, jq) {
                 document.cookie = "sesion=" + 2 + " ";

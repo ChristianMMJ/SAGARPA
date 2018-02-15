@@ -26,7 +26,15 @@ class CtrlCurso extends CI_Controller {
             $this->load->view('vFooter');
         }
     }
-    
+
+    public function onCursoFinalizado() {
+
+        $this->load->view('vEncabezado');
+        $this->load->view('vNavegacion');
+        $this->load->view('vFinalCurso');
+        $this->load->view('vFooter');
+    }
+
     public function getSesionesActivasByUsuario() {
         try {
             extract($this->input->post());
@@ -36,8 +44,7 @@ class CtrlCurso extends CI_Controller {
             echo $exc->getTraceAsString();
         }
     }
-   
-    
+
     public function getSesionActivaByUsuario() {
         try {
             extract($this->input->post());
@@ -47,7 +54,6 @@ class CtrlCurso extends CI_Controller {
             echo $exc->getTraceAsString();
         }
     }
-    
 
     public function getSesionByUsuariobySesion() {
         try {
@@ -74,6 +80,16 @@ class CtrlCurso extends CI_Controller {
                 'Observaciones' => ($Observaciones !== NULL) ? $Observaciones : NULL
             );
             $this->sesion_model->onModificar($Sesion, $DATA);
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+    public function onModificarEstatusAnteriores() {
+        try {
+            extract($this->input->post());
+
+            $this->sesion_model->onModificarEstatusAnteriores($Sesion);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }

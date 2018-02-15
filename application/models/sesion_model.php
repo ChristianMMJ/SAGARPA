@@ -22,13 +22,30 @@ class sesion_model extends CI_Model {
             echo $exc->getTraceAsString();
         }
     }
+    
+    
+    
+    public function onModificarEstatusAnteriores($Sesion) {
+        $DATA = array(
+                'Estatus' => 'Finalizado'
+            );
+        
+        try {
+            $this->db->where('Usuario_ID', $this->session->userdata('ID'));
+            $this->db->where('NSesion <=', $Sesion);
+            $this->db->update("sesion",$DATA);
+            //print $str = $this->db->last_query();
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
 
     public function onModificar($Sesion, $DATA) {
         try {
             $this->db->where('Usuario_ID', $this->session->userdata('ID'));
             $this->db->where('NSesion', $Sesion);
             $this->db->update("sesion", $DATA);
-            print $str = $this->db->last_query();
+            //print $str = $this->db->last_query();
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
@@ -40,6 +57,7 @@ class sesion_model extends CI_Model {
             $this->db->select('max(NSesion) As NSesion', false);
             $this->db->from('sesion');
             $this->db->where('Usuario_ID', $this->session->userdata('ID'));
+            $this->db->where('Estatus', 'Activa');
             //$this->db->where_in('U.Estatus', 'Activo');
             $query = $this->db->get();
             /*

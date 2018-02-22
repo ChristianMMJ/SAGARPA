@@ -12,7 +12,7 @@
             <div class="panel-body">
                 <h3>¡GRACIAS POR SU PARTICIPACIÓN!</h3>
                 <fieldset>
-                    <button id="btnVerResumenCalificaciones" type="button" class="btn btn-raised btn-primary" data-dismiss="modal">VER RESUMEN CALIFICACIONES</button>
+                    <button id="btnVerResumenCalificaciones" type="button" class="btn btn-raised btn-primary" data-dismiss="modal">VER CALIFICACIONES</button>
                     <button id="btnExpedirDiploma" type="button" class="btn btn-raised btn-primary" data-dismiss="modal">EXPEDIR CONSTANCIA</button>
                 </fieldset>
             </div>

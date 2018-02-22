@@ -25,6 +25,7 @@
         <script rel="javascript" type="text/javascript" href="<?php echo base_url(); ?>js/additional-methods.min.js"></script>
         <script src="<?php echo base_url(); ?>js/jquery.validate.min.js"></script>
         <!--Third Party-->
+        <!--Third Party-->
         <!--Pace loading and performance for web applications-->
         <script src="<?php print base_url(); ?>js/pace.min.js"></script>
         <link href="<?php print base_url(); ?>css/pace.css" rel="stylesheet" />
@@ -47,11 +48,8 @@
         <script src="<?php echo base_url(); ?>js/timepicker/bootstrap-timepicker.min.js"></script>
         <!--jQuery Number Format-->
         <script src="<?php echo base_url(); ?>js/jnumber/jquery.number.min.js"></script>
-        <!--JS XLXS API-->
-        <script src="<?php echo base_url(); ?>js/js-xlsx/dist/cpexcel.js"></script>
-        <script src="<?php echo base_url(); ?>js/js-xlsx/shim.js"></script>
-        <script src="<?php echo base_url(); ?>js/js-xlsx/jszip.js"></script>
-        <script src="<?php echo base_url(); ?>js/js-xlsx/xlsx.js"></script>
+      
+      
         <script src="<?php print base_url(); ?>js/bootstrap.min.js"></script>
         <script src="<?php print base_url(); ?>js/material.min.js"></script>
         <script src="<?php print base_url(); ?>js/ripples.min.js"></script>

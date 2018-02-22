@@ -11,6 +11,27 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <fieldset>
+
+
+                    <h3>SESIÓN 1<br><hr>INTRODUCCIÓN: OPORTUNIDADES DE EMPRENDIMIENTO EN EL SECTOR AGROALIMENTARIO MEXICANO</h3>
+                    <br><br>
+
+                    <div class="col-md-6">
+                        <h4 class="text-justify">
+                            Existen muchas oportunidades para desarrollar negocios agroalimentarios en México. 
+                            Los emprendedores cada día procuran identificar las opciones de negocio que ofrece 
+                            el mercado para invertir recursos económicos y poder generar bienes o servicios 
+                            que satisfagan las necesidades y demandas de los consumidores. 
+
+                        </h4>
+
+                    </div>
+                    <div class="col-md-6">
+                        
+
+                    </div>
+
+
                     <div class="form-group label-static" id="aNotas">
                         <label for="Notas" class="control-label">Notas de la sesión</label>
                         <textarea class="col-md-12 form-control" placeholder="Introduzca aquí alguna observación de la sesión" id="Notas" name="Notas" rows="5" required=""></textarea>
@@ -32,7 +53,7 @@
     $(document).ready(function () {
 
         if (parseInt(Nsesion) !== 1) {
-            
+
             $('#aNotas').addClass('hide');
             $('#btnFinalizarSesion').addClass('hide');
             $('input[type="text"], textarea').attr('readonly', 'readonly');
@@ -58,8 +79,8 @@
                 console.log(x, y, z);
             }).always(function () {
             });
-            
-            
+
+
             var frm = new FormData();
             frm.append('Usuario_ID', idUsuario);
             frm.append('NSesion', 2);
@@ -68,7 +89,9 @@
             $.ajax({
                 url: master_urlCurso + 'onAgregar',
                 type: "POST",
-                dataType: "JSON",
+                cache: false,
+                contentType: false,
+                processData: false,
                 data: frm
             }).done(function (data, x, jq) {
                 document.cookie = "sesion=" + 2 + " ";

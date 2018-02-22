@@ -19,9 +19,155 @@
         <div class="modal-header modal-headerFull">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title modal-titleFull">Evaluación Parcial</h4>
+            <h4 class="modal-title modal-titleFull">Evaluación Parcial 2</h4>
         </div>
         <div class="modal-body modal-bodyFull">
+            <form id="frmCuestionario">
+                <div class="col-12 col-md-12">
+                    <p>1.   Son los costos asociados exclusivamente a aquellos insumos que son fijos en el corto plazo.  </p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="a" >a)    Costos variables</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="b" >b)    Costos totales</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="c" >c)    Costos fijos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>2.   Son los costos asociados con aquellos insumos que pueden cambiar en el corto plazo.</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="a" >a)    Costos variables</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="b" >b)    Costos totales</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="c" >c)    Costos fijos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>3.   El costo medio, también conocido como costo unitario es:  </p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Tres"  value="a" >a)   Los ingresos de la empresa divididos entre el nivel de producción</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Tres"  value="b" >b)   Los costos totales divididos entre el nivel de producción de la empresa</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Tres"  value="c" >c)   El costo variable dividido entre el nivel de ingresos de la empresa</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12">
+                    <p>4.   El beneficio económico es:</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Cuatro"  value="a" >a) Representa la diferencia entre los costos fijos y los costos variables</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Cuatro"  value="b" >b) Representan la diferencia entre los ingresos totales de una empresa y sus costos económicos totales</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Cuatro"  value="c" >c) Representa la manera en que el empresario se beneficia de las utilidades que genera</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12">
+                    <p>5.   Representa la cantidad de unidades ‘Q’ a producir y vender, de manera que los ingresos obtenidos cubran en su totalidad los costos incurridos y una utilidad igual a cero.</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Cinco"  value="a" >a)  El beneficio económico</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Cinco"  value="b" >b)  El punto de quiebre</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Cinco"  value="b" >c)  El punto de equilibrio</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>6.   Es un sistema en el que se integran de manera directa o indirecta los diferentes actores que participan en la comercialización y distribución de un producto o servicio hasta que llega al consumidor final..</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Seis"  value="a" >a)   Cadena de suministro</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Seis"  value="b" >b)   Cadena de valor</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Seis"  value="c" >c)  Ninguno de los anteriores</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>7.   Los costos de la empresa se pueden clasificar principalmente en dos tipos:</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Siete"  value="a" >a)  Costos de material y costos de obra</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Siete"  value="b" >b)  Costos de capital y costos administrativos</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Siete"  value="c" >c)  Costos de fijos y costos variables</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>8.   Representan una condicionante estructural para la viabilidad del negocio, por lo que deben reducirse al máximo cuando no son necesarios:</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Ocho"  value="a" >a)   Costos variables</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Ocho"  value="b" >b)   Costos fijos</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Ocho"  value="c" >c)   Ninguno de los anteriores </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>9.   Representan los costos relacionados con las transacciones que se desarrollan intrínsecamente en la gestión de la empresa.</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Nueve"  value="a" >a)  Costos integrados</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Nueve"  value="b" >b)  Costos de transacción</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Nueve"  value="c" >c)  Costos asociados</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>10.  El diseño de las estrategias competitivas para el posicionamiento de la empresa se fundamenta en tres componentes principalmente:</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Diez"  value="a" >a)   Posicionamiento en el mercado, capacidad de los recursos y la legislación aplicable.</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Diez"  value="b" >b)   Los ingresos, los costos y las utilidades</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Diez"  value="c" >c)   Ninguno de los anteriores. </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
 
         </div>
         <div class="modal-footer modal-footerFull">

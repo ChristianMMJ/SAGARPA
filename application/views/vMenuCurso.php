@@ -170,7 +170,7 @@
 
         $('#btnEntrar').on('click', function () {
 
-         
+
             HoldOn.open({
                 theme: "sk-bounce",
                 message: "CARGANDO DATOS..."
@@ -190,7 +190,14 @@
                         type: "POST",
                         dataType: "JSON"
                     }).done(function (data, x, jq) {
+
                         var sesionCurso = data[0].NSesion;
+
+                        if (sesionCurso === null) {
+                            sesionCurso = 0;
+                        }
+                       
+
                         document.cookie = "sesion=" + sesionCurso + " ";
                         window.location.href = "<?php echo base_url('CtrlCurso'); ?>";
                     }).fail(function (x, y, z) {
@@ -199,9 +206,7 @@
                         HoldOn.close();
                     });
 
-                } 
-                
-                else {
+                } else {
                     //Es nuevo, aqui se inserta una nuevo registro en la tabla de sesiones y se deshabilita la primer sesion
                     var sesionCurso = '1';
                     var frm = new FormData();

@@ -19,10 +19,157 @@
         <div class="modal-header modal-headerFull">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title modal-titleFull">Evaluación Parcial</h4>
+            <h4 class="modal-title modal-titleFull">Evaluación Parcial 1</h4>
         </div>
         <div class="modal-body modal-bodyFull">
+            <form id="frmCuestionario">
+                <div class="col-12 col-md-12">
+                    <p>1.   Puede considerarse como la fuerza que impulsa a los agentes productores a llevar a cabo su idea de negocio. Siendo esta idea el origen desde donde se toma cada decisión razonada y se implementa cada acción programada, que servirán para convertirla en realidad y con ello aspirar a obtener los beneficios esperados. </p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="a" >a) Planeación</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="b" >b) Emprendimiento</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Uno"  value="c" >c)    Una idea</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>2.   Representa la primera etapa de proceso de creación de un proyecto de negocio.</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Dos"  value="a" >a)  Etapa de emprendimiento</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Dos"  value="b" >b)  Etapa de planeación</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Dos"  value="c" >c)  Etapa de la idea</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>3.   Se expresa como una declaratoria de intención, donde se indica de manera clara y precisa, dónde se desea que esté el negocio en el largo plazo y los alcances que se desean tener.  </p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Tres"  value="a" >a)  Visión</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Tres"  value="b" >b)  Misión</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Tres"  value="c" >c)  Objetivos</label>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-12 col-md-12">
+                    <p>4.   Este proceso consististe en recabar, organizar, sintetizar y analizar 
+                        información relacionada con el negocio y su objetivo es identificar los factores 
+                        positivos y negativos que influyen en el negocio, que pueden determinar 
+                        su viabilidad y sus limitaciones. </p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Cuatro"  value="a" >a) Objetivos estratégicos</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Cuatro"  value="b" >b) Diagnóstico empresarial</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Cuatro"  value="c" >c)    Análisis de riesgos</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12">
+                    <p>5.   El efecto positivo o negativo en el negocio ante un factor externo, dependerá en gran medida de las condiciones internas de ésta.</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Cinco"  value="a" >a)   Falso</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Cinco"  value="b" >b)   Verdadero</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>6.   Se define como un sistema complejo en el que intervienen diversos 
+                        agentes económicos como oferentes y demandantes, es un sistema 
+                        dinámico porque además se ve influenciado permanentemente 
+                        por distintos factores que determinan su comportamiento.</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Seis"  value="a" >a)  El negocio agroalimentario</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Seis"  value="b" >b)  El mercado</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Seis"  value="c" >c)  Ninguno de los anteriores</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>7.   El análisis del mercado y el entorno comercial integra por distintos factores como:</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Siete"  value="a" >a)   Proveedores, competidores, distribuidores y consumidores</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Siete"  value="b" >b)   Vendedores, clientes y repartidores</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Siete"  value="c" >c)  Productores, cadenas comerciales y consumidores finales</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>8.   El sistema de proceso de producción integra sistemáticamente los siguientes componentes:</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Ocho"  value="a" >a)    Productos, procesos e insumos</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Ocho"  value="b" >b)    Insumos, procesos, productos</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Ocho"  value="c" >c)   Insumos, productos y procesos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>9.   Los requerimientos del negocio se pueden clasificar en cuatro componentes:</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Nueve"  value="a" >a)    Maquinaria y equipo, mano de obra, insumos y obra física</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Nueve"  value="b" >b)   Tierra, trabajo y capital</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Nueve"  value="c" >c)  Ninguna de las anteriores</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <p>10.  En esta etapa del proceso de construcción de un proyecto, se definen las características del proyecto y luego la cuantifican sus costos y beneficios.</p>
+                    <div class="form-group label-static ">
+                        <div class="radio">
+                            <label><input type="radio" name="Diez"  value="a" >a)    Etapa de idea</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Diez"  value="b" >b)    Etapa de formulación</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="Diez"  value="c" >c)   Etapa de evaluación</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer modal-footerFull">
             <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
@@ -124,7 +271,7 @@
                     Observaciones: $("#Notas").val()
                 }
             }).done(function (data, x, jq) {
-                
+
             }).fail(function (x, y, z) {
                 console.log(x, y, z);
             }).always(function () {

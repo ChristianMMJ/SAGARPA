@@ -67,7 +67,9 @@
             $.ajax({
                 url: master_urlCurso + 'onAgregar',
                 type: "POST",
-                dataType: "JSON",
+                cache: false,
+                contentType: false,
+                processData: false,
                 data: frm
             }).done(function (data, x, jq) {
                 document.cookie = "sesion=" + 3 + " ";

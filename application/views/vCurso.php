@@ -5,19 +5,24 @@
             <span class="fa fa-home fa-1x"></span><br>IR AL INICIO
         </a>
     </div>
-    <div class="col-md-12"><center><h3 id="Titulo"></h3></center></div>
+    <div class="col-md-12">
+        <center>
+            <hr>
+            <h3 id="Titulo"></h3>
+            <hr>
+<!--            <h4 id="Descripcion" style="text-transform: uppercase !important;"></h4>-->
+        </center></div>
     <div class="col-md-4 disabledDetalle hide" id="1"> 
         <div class="thumbnail">
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 1</h3>
-                <p>Oportunidades del sector agroalimentario mexicano
+                <p  style="text-transform: uppercase !important;">oportunidades de emprendimiento en el sector agroalimentario mexicano
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoUno') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -26,13 +31,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 2</h3>
-                <p>Apoyos y subsidios para el sector agroalimentario en México
+                <p style="text-transform: uppercase !important;">Creación de un negocio agroalimentario
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoDos') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -41,13 +45,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 3</h3>
-                <p>Creación de un negocio agroalimentario
+                <p style="text-transform: uppercase !important;">Formulación del plan de negocio
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoTres') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -57,13 +60,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 4</h3>
-                <p>Producción agroalimentarios con Valor Agregado
+                <p style="text-transform: uppercase !important;">Análisis del mercado y el entorno comercial
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoCuatro') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -72,13 +74,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 5</h3>
-                <p>Mercado y cadena de suministro en empresas agroalimentarias
+                <p style="text-transform: uppercase !important;">Requerimientos técnicos para la producción
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoCinco') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -87,13 +88,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 6</h3>
-                <p>Formulación del plan de negocio 
+                <p style="text-transform: uppercase !important;">Aspectos administrativos y organizacionales 
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoSeis') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -103,13 +103,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 7</h3>
-                <p>Tecnologías y métodos de producción modernos
+                <p style="text-transform: uppercase !important;">Ingresos, costos e inversiones
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoSiete') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -118,13 +117,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 8</h3>
-                <p>Costos, inversiones y rentabilidad del negocio 
+                <p style="text-transform: uppercase !important;">Evaluación del proyecto de negocio 
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoOcho') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
-                <br>
-                </p> 
+                <br> 
             </div>
         </div>
     </div>
@@ -133,13 +131,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 9</h3>
-                <p>Normas de inocuidad agroalimentaria
+                <p style="text-transform: uppercase !important;">Normas de inocuidad agroalimentaria
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoNueve') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -149,13 +146,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 10</h3>
-                <p>Estrategias de comercialización de productos agroalimentarios
+                <p style="text-transform: uppercase !important;">Estrategias de comercialización de productos agroalimentarios con valor agregado
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoDiez') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -164,13 +160,12 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 11</h3>
-                <p>Integración de cadenas productivas y comerciales
+                <p style="text-transform: uppercase !important;">Integración de cadenas productivas y comerciales
                 </p>
                 <hr>
                 <a href="<?php print base_url('CtrlContenidoSesionCursoOnce') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -179,7 +174,7 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>SESIÓN 12</h3>
-                <p>Empresas agroalimentarias de exportación
+                <p style="text-transform: uppercase !important;">Empresas agroalimentarias de exportación
                 </p>
                 <P>
                     Mercadotecnia para productos agroalimentarios
@@ -188,7 +183,6 @@
                 <a href="<?php print base_url('CtrlContenidoSesionCursoDoce') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -198,7 +192,7 @@
             <img src="<?php print base_url(); ?>img/bienvenida.jpg" alt="Bienvenida thumbnail" class="img-responsive"> 
             <div class="caption"> 
                 <h3>CIERRE DEL CURSO</h3>
-                <p>Agradecimiento
+                <p style="text-transform: uppercase !important;">Agradecimiento
                 </p>
                 <P>
                     Mensaje de motivación a emprender un negocio agroalimentario de calidad
@@ -211,7 +205,6 @@
                 <a href="<?php print base_url('CtrlContenidoSesionFinal') ?>" type="button" class="btn btn-raised btn-primary pull-right">INICIAR</a>
                 <br>
                 <br>
-                </p> 
             </div>
         </div>
     </div>
@@ -225,14 +218,19 @@
     var idUsuario = "<?php echo $this->session->userdata('ID'); ?>";
 
     $(document).ready(function () {
-
         if (Nsesion === '1' || Nsesion === '2' || Nsesion === '3') {
 
             $("#Titulo").html('MÓDULO 1');
+            $("#Descripcion").html('-Oportunidades de emprendimiento en el sector agroalimentario mexicano \n\
+<br>-Creación de un negocio agroalimentario \n\
+<br>-Formulación del plan de negocio ');
         }
         if (Nsesion === '4' || Nsesion === '5' || Nsesion === '6') {
 
             $("#Titulo").html('MÓDULO 2');
+            $("#Descripcion").html('-Oportunidades de emprendimiento en el sector agroalimentario mexicano \n\
+<br>-Creación de un negocio agroalimentario \n\
+<br>-Formulación del plan de negocio ');
         }
         if (Nsesion === '7' || Nsesion === '8' || Nsesion === '9') {
 
@@ -241,9 +239,7 @@
         if (Nsesion === '10' || Nsesion === '11' || Nsesion === '12') {
 
             $("#Titulo").html('MÓDULO 4');
-        } else {
-
-
+        } else if (Nsesion === '0' || Nsesion === null) {
             window.location.href = "<?php echo base_url('CtrlCurso/onCursoFinalizado'); ?>";
         }
 

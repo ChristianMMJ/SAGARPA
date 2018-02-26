@@ -27,16 +27,22 @@
 
                     </div>
                     <div class="col-md-6">
+
+
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <br><hr>
                         
-
                     </div>
 
-
-                    <div class="form-group label-static" id="aNotas">
-                        <label for="Notas" class="control-label">Notas de la sesión</label>
-                        <textarea class="col-md-12 form-control" placeholder="Introduzca aquí alguna observación de la sesión" id="Notas" name="Notas" rows="5" required=""></textarea>
+                    <div class="col-md-12">
+                        <div class="form-group label-static" id="aNotas">
+                            <label for="Notas" class="control-label">Notas de la sesión</label>
+                            <textarea class="col-md-12 form-control" placeholder="Introduzca aquí alguna observación de la sesión" id="Notas" name="Notas" rows="5" required=""></textarea>
+                        </div>
+                        <button id="btnFinalizarSesion" type="button" class="btn btn-raised btn-primary" data-dismiss="modal">FINALIZAR TEMA</button>
                     </div>
-                    <button id="btnFinalizarSesion" type="button" class="btn btn-raised btn-primary" data-dismiss="modal">FINALIZAR TEMA</button>
                 </fieldset>
             </div>
         </div>

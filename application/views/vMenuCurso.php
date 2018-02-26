@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        <div class="col-md-4"> 
+        <div class="col-md-3"> 
             <div class="thumbnail"> 
                 <img src="<?php print base_url(); ?>img/logo_sagarpa.jpg" alt="Curso thumbnail" class="img-responsive">  
                 <div class="caption">  
@@ -122,7 +122,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
 
         </div>
 

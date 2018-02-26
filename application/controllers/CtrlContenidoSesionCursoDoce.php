@@ -11,6 +11,7 @@ class CtrlContenidoSesionCursoDoce extends CI_Controller {
         date_default_timezone_set('America/Mexico_City');
         $this->load->library('session');
         $this->load->model('usuario_model');
+        $this->load->model('cuestionarios_model');
     }
 
     public function index() {
@@ -25,5 +26,16 @@ class CtrlContenidoSesionCursoDoce extends CI_Controller {
             $this->load->view('vFooter');
         }
     }
+    
+    public function onAgregar() {
+        try {
+            extract($this->input->post());
+            $this->cuestionarios_model->onEliminar($Usuario_ID);
+            $this->cuestionarios_model->onAgregar($this->input->post());
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
 
 }

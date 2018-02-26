@@ -12,6 +12,8 @@ class CtrlCurso extends CI_Controller {
         $this->load->library('session');
         $this->load->model('usuario_model');
         $this->load->model('sesion_model');
+        $this->load->helper('reportes_helper');
+        $this->load->helper('file');
     }
 
     public function index() {
@@ -39,6 +41,16 @@ class CtrlCurso extends CI_Controller {
         try {
             extract($this->input->post());
             $data = $this->sesion_model->getSesionesActivasByUsuario();
+            print json_encode($data);
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+    public function getObservacionesXSesion() {
+        try {
+            extract($this->input->post());
+            $data = $this->sesion_model->getObservacionesXSesion($Sesion);
             print json_encode($data);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
@@ -90,9 +102,66 @@ class CtrlCurso extends CI_Controller {
             extract($this->input->post());
 
             $this->sesion_model->onModificarEstatusAnteriores($Sesion);
+            $this->sesion_model->onModificarCalificacion($Sesion, $Calificacion);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
+    
+     public function onReporteDiploma() {
+   
+        try {
+          
+            // Creación del objeto de la clase heredada
+            $pdf = new PDF('L', 'mm', array(279/* ANCHO */, 216/* ALTURA */));
+            $pdf->AliasNbPages();
+            $pdf->AddPage();
+            $pdf->SetAutoPageBreak(false, 300);
+            $pdf->SetLineWidth(0.1);
+
+            /* ENCABEZADO */
+//            $pdf->Image(base_url() . 'uploads/Clientes/16/T1.png', 5, 3, 270);
+//            $pdf->Image(base_url() . 'uploads/Clientes/16/T2.png', 5, 170, 270);
+            // Arial bold 15
+            $pdf->SetFont('Arial', '', 8.5);
+            // Título
+            // Movernos a la derecha
+            $pdf->SetX(5);
+            $pdf->SetTextColor(37, 51, 109);
+            $pdf->SetFont('Arial', 'B', 9.5);
+            /* CUERPO */
+
+            $pdf->SetY(35);
+            $pdf->SetX(50);
+           // $pdf->Cell(105, 5, utf8_decode($trabajo[0]->NombreSucursal), 0, 1, 'L');
+            $pdf->Cell(105, 5, strtoupper(utf8_decode($this->session->userdata('Nombre').' '.$this->session->userdata('Apellidos')))  , 0, 1, 'L');
+            $pdf->SetY(45);
+            $pdf->SetX(50);
+            $pdf->Cell(105, 5, date("d-m-Y"), 0, 1, 'L');
+            
+
+
+            /* FIN CUERPO */
+            $path = 'uploads/Reportes/';
+            // print $path;
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
+            }
+            $file_name = "CONSTANCIA IMPRESA " . " " . date("Y-m-d His");
+            $url = $path . '/' . $file_name . '.pdf';
+            if (delete_files('uploads/Reportes/')) {
+                
+            }
+
+            $pdf->Output($url);
+            print base_url() . $url;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+    
+    
+    
 
 }

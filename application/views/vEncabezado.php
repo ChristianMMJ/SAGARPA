@@ -109,7 +109,7 @@
                     }
             );
             /*Mensajes de jquery validate*/
-            jQuery.validator.messages.required = 'Este campo es obligatorio';
+            jQuery.validator.messages.required = 'Pregunta sin contestar';
             jQuery.validator.messages.number = 'Este campo debe ser numérico';
             jQuery.validator.messages.email = 'Correo no válido';
 

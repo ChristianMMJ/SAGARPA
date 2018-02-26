@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">Deseas terminar el intento?</div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" >CANCELAR</button>
+            <button type="button" class="btn btn-default" id="btnCancelarTerminar" >CANCELAR</button>
             <button type="button" class="btn btn-raised btn-primary" id="btnTerminar">ACEPTAR</button>
         </div>
     </div>
@@ -41,13 +41,13 @@
                     <p>2.   Son los costos asociados con aquellos insumos que pueden cambiar en el corto plazo.</p>
                     <div class="form-group label-static ">
                         <div class="radio">
-                            <label><input type="radio" name="Uno"  value="a" >a)    Costos variables</label>
+                            <label><input type="radio" name="Dos"  value="a" >a)    Costos variables</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="Uno"  value="b" >b)    Costos totales</label>
+                            <label><input type="radio" name="Dos"  value="b" >b)    Costos totales</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="Uno"  value="c" >c)    Costos fijos</label>
+                            <label><input type="radio" name="Dos"  value="c" >c)    Costos fijos</label>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                             <label><input type="radio" name="Cinco"  value="b" >b)  El punto de quiebre</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="Cinco"  value="b" >c)  El punto de equilibrio</label>
+                            <label><input type="radio" name="Cinco"  value="c" >c)  El punto de equilibrio</label>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                     </div>
                 </div>
             </form>
-            
+
 
         </div>
         <div class="modal-footer modal-footerFull">
@@ -209,54 +209,140 @@
     var idUsuario = "<?php echo $this->session->userdata('ID'); ?>";
 
     $(document).ready(function () {
+        
+        getObservacionesXSesion();
+        
+        $('#btnCancelarTerminar').on('click', function () {
+            $('#mdlConfirmar').modal('hide');
+            $('#mdlCapturarExamen').modal('show');
+
+
+        });
 
 
         $('#btnTerminar').on('click', function () {
             //Validar calificación
-            //Aquí se hace el update de estatus a finalizados de las primeras 3 sesiones y se inserta la 4ta
-            $('#mdlConfirmar').modal('hide');
+            var Total = 0;
+            if ($('input[name=Uno]:checked').val() === 'c') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Dos]:checked').val() === 'a') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Tres]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Cuatro]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Cinco]:checked').val() === 'c') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Seis]:checked').val() === 'a') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Siete]:checked').val() === 'c') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Ocho]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Nueve]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Diez]:checked').val() === 'a') {
+                Total = Total + 1;
+            }
+            if (Total >= 8) {
+                 alert('¡Felicidades! \n Haz aprobado el examen con una calificación de: ' + Total);
+                //Aquí se hace el update de estatus a finalizados de las primeras 3 sesiones y se inserta la 4ta
+                $('#mdlConfirmar').modal('hide');
 
-            //Modifcar Estatus Anteriores
-            $.ajax({
-                url: master_urlCurso + 'onModificarEstatusAnteriores',
-                type: "POST",
-                data: {
-                    Sesion: Nsesion
-                }
-            }).done(function (data, x, jq) {
-            }).fail(function (x, y, z) {
-                console.log(x, y, z);
-            }).always(function () {
-            });
+                //Modifcar Estatus Anteriores
+                $.ajax({
+                    url: master_urlCurso + 'onModificarEstatusAnteriores',
+                    type: "POST",
+                    data: {
+                        Sesion: Nsesion,
+                        Calificacion: Total
+                    }
+                }).done(function (data, x, jq) {
+                }).fail(function (x, y, z) {
+                    console.log(x, y, z);
+                }).always(function () {
+                });
 
-            var frm = new FormData();
-            frm.append('Usuario_ID', idUsuario);
-            frm.append('NSesion', 7);
-            frm.append('Estatus', 'Activa');
-            //Inserta otra sesion
-            $.ajax({
-                url: master_urlCurso + 'onAgregar',
-                type: "POST",
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: frm
-            }).done(function (data, x, jq) {
-                document.cookie = "sesion=" + 7 + " ";
+                var frm = new FormData();
+                frm.append('Usuario_ID', idUsuario);
+                frm.append('NSesion', 7);
+                frm.append('Estatus', 'Activa');
+                //Inserta otra sesion
+                $.ajax({
+                    url: master_urlCurso + 'onAgregar',
+                    type: "POST",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: frm
+                }).done(function (data, x, jq) {
+                    document.cookie = "sesion=" + 7 + " ";
+                    window.location.href = "<?php echo base_url('CtrlCurso'); ?>";
+                }).fail(function (x, y, z) {
+                    console.log(x, y, z);
+                }).always(function () {
+                    HoldOn.close();
+                });
+
+
+            } else {
+                alert('¡Lo sentimos! \n La calificación mínima es de 8 y haz conseguido sólo ' + Total + ' puntos.');
                 window.location.href = "<?php echo base_url('CtrlCurso'); ?>";
-            }).fail(function (x, y, z) {
-                console.log(x, y, z);
-            }).always(function () {
-                HoldOn.close();
-            });
+
+            }
+
+
 
 
 
         });
 
         $('#btnTerminarCaptura').on('click', function () {
-            $('#mdlCapturarExamen').modal('hide');
-            $('#mdlConfirmar').modal('show');
+            $.validator.setDefaults({
+                ignore: []
+            });
+            $('#frmCuestionario').validate({
+                errorElement: 'span',
+                errorClass: 'help-block',
+
+                rules: {
+                    Uno: 'required',
+                    Dos: 'required',
+                    Tres: 'required',
+                    Cuatro: 'required',
+                    Cinco: 'required',
+                    Seis: 'required',
+                    Siete: 'required',
+                    Ocho: 'required',
+                    Nueve: 'required',
+                    Diez: 'required'
+
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).closest('.form-group').addClass('has-error has-errorTest');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).closest('.form-group').removeClass('has-error has-errorTest');
+                }
+            });
+            //Regresa si es valido para los select2
+            $('select').on('change', function () {
+                $(this).valid();
+            });
+            if ($('#frmCuestionario').valid()) {
+                $('#mdlCapturarExamen').modal('hide');
+                $('#mdlConfirmar').modal('show');
+
+            }
 
         });
 
@@ -270,7 +356,7 @@
                     Observaciones: $("#Notas").val()
                 }
             }).done(function (data, x, jq) {
-                
+
             }).fail(function (x, y, z) {
                 console.log(x, y, z);
             }).always(function () {
@@ -290,5 +376,26 @@
         }
 
     });
+    
+    function getObservacionesXSesion() {
+
+        $.ajax({
+            url: master_urlCurso + 'getObservacionesXSesion',
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                Sesion: Nsesion
+            }
+        }).done(function (data, x, jq) {
+            console.log(data);
+            $('#Notas').val(data[0].Observaciones);
+
+        }).fail(function (x, y, z) {
+            console.log(x, y, z);
+        }).always(function () {
+        });
+
+
+    }
 
 </script>

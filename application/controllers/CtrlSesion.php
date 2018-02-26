@@ -108,7 +108,7 @@ class CtrlSesion extends CI_Controller {
                     'wordwrap' => TRUE
                 );
                 $this->load->library('email', $config);
-                $this->email->from('no-reply@ayr.mx', 'app.ayr.mx');
+                $this->email->from('no-reply@ayr.mx', 'AppGERONegocios México');
                 $this->email->to($data[0]->Usuario);
                 $this->email->subject(utf8_decode('Activacion de Usuario '));
                 $this->email->message(utf8_decode('<p>Para terminar su registro y activar su cuenta: ' . $data[0]->Usuario . '</p><br>'

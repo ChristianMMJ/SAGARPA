@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">Deseas terminar el intento?</div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" >CANCELAR</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCancelarTerminar">CANCELAR</button>
             <button type="button" class="btn btn-raised btn-primary" id="btnTerminar">ACEPTAR</button>
         </div>
     </div>
@@ -36,6 +36,7 @@
                             <label><input type="radio" name="Uno"  value="c" >c)    Una idea</label>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-12 col-md-12">
                     <p>2.   Representa la primera etapa de proceso de creación de un proyecto de negocio.</p>
@@ -186,7 +187,6 @@
             <span class="fa fa-arrow-left fa-1x"></span><br>REGRESAR
         </a>
     </div>
-
     <div class="col-md-12" align="center">
         <div class="panel panel-default">
             <div class="panel-body">
@@ -200,7 +200,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <script>
@@ -211,54 +210,136 @@
 
     $(document).ready(function () {
 
+        getObservacionesXSesion();
+
+        $('#btnCancelarTerminar').on('click', function () {
+            $('#mdlConfirmar').modal('hide');
+            $('#mdlCapturarExamen').modal('show');
+
+
+        });
 
         $('#btnTerminar').on('click', function () {
             //Validar calificación
-            //Aquí se hace el update de estatus a finalizados de las primeras 3 sesiones y se inserta la 4ta
-            $('#mdlConfirmar').modal('hide');
 
-            //Modifcar Estatus Anteriores
-            $.ajax({
-                url: master_urlCurso + 'onModificarEstatusAnteriores',
-                type: "POST",
-                data: {
-                    Sesion: Nsesion
-                }
-            }).done(function (data, x, jq) {
-            }).fail(function (x, y, z) {
-                console.log(x, y, z);
-            }).always(function () {
-            });
+            var Total = 0;
+            if ($('input[name=Uno]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Dos]:checked').val() === 'c') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Tres]:checked').val() === 'a') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Cuatro]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Cinco]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Seis]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Siete]:checked').val() === 'a') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Ocho]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Nueve]:checked').val() === 'a') {
+                Total = Total + 1;
+            }
+            if ($('input[name=Diez]:checked').val() === 'b') {
+                Total = Total + 1;
+            }
+            if (Total >= 8) {
+                //Aquí se hace el update de estatus a finalizados de las primeras 3 sesiones y se inserta la 4ta
 
-            var frm = new FormData();
-            frm.append('Usuario_ID', idUsuario);
-            frm.append('NSesion', 4);
-            frm.append('Estatus', 'Activa');
-            //Inserta otra sesion
-            $.ajax({
-                url: master_urlCurso + 'onAgregar',
-                type: "POST",
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: frm
-            }).done(function (data, x, jq) {
-                document.cookie = "sesion=" + 4 + " ";
+                alert('¡Felicidades! \n Haz aprobado el examen con una calificación de: ' + Total);
+                $('#mdlConfirmar').modal('hide');
+                $.ajax({
+                    url: master_urlCurso + 'onModificarEstatusAnteriores',
+                    type: "POST",
+                    data: {
+                        Sesion: Nsesion,
+                        Calificacion: Total
+                    }
+                }).done(function (data, x, jq) {
+                }).fail(function (x, y, z) {
+                    console.log(x, y, z);
+                }).always(function () {
+                });
+
+                var frm = new FormData();
+                frm.append('Usuario_ID', idUsuario);
+                frm.append('NSesion', 4);
+                frm.append('Estatus', 'Activa');
+
+                $.ajax({
+                    url: master_urlCurso + 'onAgregar',
+                    type: "POST",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: frm
+                }).done(function (data, x, jq) {
+                    document.cookie = "sesion=" + 4 + " ";
+                    window.location.href = "<?php echo base_url('CtrlCurso'); ?>";
+                }).fail(function (x, y, z) {
+                    console.log(x, y, z);
+                }).always(function () {
+                    HoldOn.close();
+                });
+
+            } else {
+                alert('¡Lo sentimos! \n La calificación mínima es de 8 y haz conseguido sólo ' + Total + ' puntos.');
                 window.location.href = "<?php echo base_url('CtrlCurso'); ?>";
-            }).fail(function (x, y, z) {
-                console.log(x, y, z);
-            }).always(function () {
-                HoldOn.close();
-            });
+
+            }
 
 
 
         });
 
         $('#btnTerminarCaptura').on('click', function () {
-            $('#mdlCapturarExamen').modal('hide');
-            $('#mdlConfirmar').modal('show');
 
+            $.validator.setDefaults({
+                ignore: []
+            });
+            $('#frmCuestionario').validate({
+                errorElement: 'span',
+                errorClass: 'help-block',
+
+                rules: {
+                    Uno: 'required',
+                    Dos: 'required',
+                    Tres: 'required',
+                    Cuatro: 'required',
+                    Cinco: 'required',
+                    Seis: 'required',
+                    Siete: 'required',
+                    Ocho: 'required',
+                    Nueve: 'required',
+                    Diez: 'required'
+
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).closest('.form-group').addClass('has-error has-errorTest');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).closest('.form-group').removeClass('has-error has-errorTest');
+                }
+            });
+            //Regresa si es valido para los select2
+            $('select').on('change', function () {
+                $(this).valid();
+            });
+            if ($('#frmCuestionario').valid()) {
+                $('#mdlCapturarExamen').modal('hide');
+                $('#mdlConfirmar').modal('show');
+
+            }
         });
 
         $('#btnIniciarExamen').on('click', function () {
@@ -276,9 +357,6 @@
                 console.log(x, y, z);
             }).always(function () {
             });
-
-
-
             $('#mdlCapturarExamen').modal('show');
 
         });
@@ -291,5 +369,27 @@
         }
 
     });
+
+    function getObservacionesXSesion() {
+
+        $.ajax({
+            url: master_urlCurso + 'getObservacionesXSesion',
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                Sesion: Nsesion
+            }
+        }).done(function (data, x, jq) {
+            console.log(data);
+            $('#Notas').val(data[0].Observaciones);
+
+        }).fail(function (x, y, z) {
+            console.log(x, y, z);
+        }).always(function () {
+        });
+
+
+    }
+
 
 </script>

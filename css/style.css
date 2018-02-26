@@ -10,6 +10,12 @@
     format('woff2');
 }
 
+.form-group.has-errorTest label.control-labelTest, .form-group.has-errorTest .help-block {
+    color: #f44336;
+    top: -23px !important;
+    width: 500px;
+}
+
 .text-justify{
     text-align: justify !important;
 }

@@ -22,18 +22,31 @@ class sesion_model extends CI_Model {
             echo $exc->getTraceAsString();
         }
     }
-    
-    
-    
+
+    public function onModificarCalificacion($Sesion, $Calificacion) {
+        $DATA = array(
+            'Calificacion' => ($Calificacion !== NULL) ? $Calificacion : NULL
+        );
+
+        try {
+            $this->db->where('Usuario_ID', $this->session->userdata('ID'));
+            $this->db->where('NSesion', $Sesion);
+            $this->db->update("sesion", $DATA);
+            //print $str = $this->db->last_query();
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
     public function onModificarEstatusAnteriores($Sesion) {
         $DATA = array(
-                'Estatus' => 'Finalizado'
-            );
-        
+            'Estatus' => 'Finalizado'
+        );
+
         try {
             $this->db->where('Usuario_ID', $this->session->userdata('ID'));
             $this->db->where('NSesion <=', $Sesion);
-            $this->db->update("sesion",$DATA);
+            $this->db->update("sesion", $DATA);
             //print $str = $this->db->last_query();
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
@@ -51,7 +64,6 @@ class sesion_model extends CI_Model {
         }
     }
 
-    
     public function getSesionActivaByUsuario() {
         try {
             $this->db->select('max(NSesion) As NSesion', false);
@@ -71,7 +83,7 @@ class sesion_model extends CI_Model {
             echo $exc->getTraceAsString();
         }
     }
-    
+
     public function getSesionesActivasByUsuario() {
         try {
             $this->db->select('NSesion', false);
@@ -92,6 +104,26 @@ class sesion_model extends CI_Model {
         }
     }
     
+    public function getObservacionesXSesion($Sesion) {
+        try {
+            $this->db->select('Observaciones', false);
+            $this->db->from('sesion');
+            $this->db->where('Usuario_ID', $this->session->userdata('ID'));
+            $this->db->where('Estatus', 'Activa');
+            $this->db->where('NSesion', $Sesion);
+            //$this->db->where_in('U.Estatus', 'Activo');
+            $query = $this->db->get();
+            /*
+             * FOR DEBUG ONLY
+             */
+            $str = $this->db->last_query();
+//        print $str;
+            $data = $query->result();
+            return $data;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
     
 
     public function getSesionByUsuariobySesion($Sesion) {

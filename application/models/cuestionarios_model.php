@@ -12,7 +12,7 @@ class cuestionarios_model extends CI_Model {
     
      public function onAgregar($array) {
         try {
-            $this->db->insert("cuestionariosesionusuario", $array);
+            $this->db->insert("encuesta", $array);
             //print $str = $this->db->last_query();
             $query = $this->db->query('SELECT LAST_INSERT_ID()');
             $row = $query->row_array();
@@ -22,47 +22,20 @@ class cuestionarios_model extends CI_Model {
             echo $exc->getTraceAsString();
         }
     }
-
-    public function onModificar($Usuario_ID, $Sesion, $DATA) {
+    
+    public function onEliminar($Usuario_ID) {
         try {
-            $this->db->where('Usuario_ID', $this->session->userdata('ID'));
-            $this->db->where('NSesion', $Sesion);
-            $this->db->update("cuestionariosesionusuario", $DATA);
-            print $str = $this->db->last_query();
+
+            $this->db->where('Usuario_ID', $Usuario_ID);
+            $this->db->delete("encuesta");
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
 
-    public function onEliminar($Sesion) {
-        try {
-            $this->db->where('Usuario_ID', $this->session->userdata('ID'));
-            $this->db->where('NSesion', $Sesion);
-            $this->db->update("cuestionariosesionusuario");
-//            print $str = $this->db->last_query();
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
 
-    public function getCuestionarioByUsuarioBySesion($Sesion) {
-        try {
-            $this->db->select('*', false);
-            $this->db->from('cuestionariosesionusuario');
-            $this->db->where('Usuario_ID', $this->session->userdata('ID'));
-            $this->db->where('NSesion', $Sesion);
-            //$this->db->where_in('U.Estatus', 'Activo');
-            $query = $this->db->get();
-            /*
-             * FOR DEBUG ONLY
-             */
-            $str = $this->db->last_query();
-//        print $str;
-            $data = $query->result();
-            return $data;
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-    }
+
+
+  
 
 }
